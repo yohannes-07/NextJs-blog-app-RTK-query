@@ -6,7 +6,6 @@ import { useParams, useRouter } from 'next/navigation'
 import { Blog } from '@/models/type'
 
 
-
 const SingleBlog = () => {
     const [isEditing, setisEditing] = useState(false)
     const params = useParams();
@@ -85,17 +84,15 @@ const SingleBlog = () => {
         }
     }
 
-
-
         
         return (
             <div>
                 {!isEditing ?  blog && (<div className="container mx-auto py-8">
                 <h1 className="text-3xl font-semibold mb-4">{blog.title}</h1>
                 <div>{blog.content}</div>
-                <div className='flex gap-4'>
-                <button className='bg-blue-500 text-white border-none  rounded mt-48 p-1 w-1/12 ' onClick={() => setisEditing(!isEditing)}>Edit</button>
-                <button className='bg-blue-500 text-white border-none  rounded mt-48 p-1 w-1/12 ' onClick={handleDelete}>Delete</button>
+                <div className='flex gap-4' >
+                    <button data-test='editButton' className='bg-blue-500 text-white border-none  rounded mt-48 p-1 w-1/12 ' onClick={() => setisEditing(!isEditing)}>Edit</button>
+                    <button data-test='deleteButton' className='bg-blue-500 text-white border-none  rounded mt-48 p-1 w-1/12 ' onClick={handleDelete}>Delete</button>
                 </div>
             </div>
             ):(
@@ -120,7 +117,6 @@ const SingleBlog = () => {
                     </button>
                 </form>
                </div> 
-               
 
         ) }
         

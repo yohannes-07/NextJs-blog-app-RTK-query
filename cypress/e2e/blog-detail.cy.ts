@@ -11,7 +11,8 @@ describe('SingleBlog Component', () => {
   
           cy.get('.text-3xl').should('be.visible');
           cy.get('.mb-4').should('be.visible');
-          cy.get('.mt-48').should('be.visible');
+          cy.get('[data-test=editButton]').should('be.visible');
+          cy.get('[data-test=deleteButton]').should('be.visible');
   
         cy.request('GET', `http://localhost:3004/blogs/${blogId}`).then((response) => {
         const blogDetails = response.body;

@@ -5,7 +5,7 @@ describe('Home Page', () => {
     cy.visit('/');
   });
  
-  it('List of Blogs', () => {
+  it('lists  blogs', () => {
     cy.request('GET', 'http://localhost:3004/blogs').then((response) => {
       const blogs = response.body;
 
