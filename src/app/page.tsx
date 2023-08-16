@@ -8,8 +8,6 @@ export default function Home() {
   const {
       data: blogs,
       isLoading,
-      isSuccess,
-      isError,
       error
   } = useGetBlogsQuery()
 
