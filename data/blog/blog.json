@@ -19,7 +19,11 @@
       "title": "New Blog Title",
       "content": "New Blog Content",
       "id": 6
+    },
+    {
+      "title": "new ",
+      "content": "content",
+      "id": 7
     }
-    
   ]
 }

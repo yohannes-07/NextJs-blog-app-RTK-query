@@ -12,7 +12,7 @@ export default function Home() {
   } = useGetBlogsQuery()
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <><div>Loading...</div></>
   }
 
   if (error) {
@@ -20,24 +20,27 @@ export default function Home() {
       const errMsg = 'error' in error ? error.error : JSON.stringify(error.data)
 
       return (
+        <>
         <div>
           <div>An error has occurred:</div>
           <div>{errMsg}</div>
         </div>
+        </>
       )
     } else {
-      return <div>{error.message}</div>
+      return <> <div>{error.message}</div></>
     }
   }
 
   if (blogs) {
     return (
+      <>
       <div>
         <AddForm />
         <div className="container mx-auto py-8">
           <h1 className="text-3xl font-semibold mb-4">Blog List</h1>
 
-          {blogs.map((blog:Blog) => (
+          {blogs?.map((blog:Blog) => (
             <Link href={`/blog/${blog.id}`} key={blog.id}>
               <div className="bg-gray-100 p-4 rounded-md mb-4 hover:bg-gray-200 cursor-pointer">
                 {blog.title}
@@ -47,7 +50,10 @@ export default function Home() {
 
         </div>
     </div>
+    </>
     )
+  }else{
+    return null
   }
 
 }
